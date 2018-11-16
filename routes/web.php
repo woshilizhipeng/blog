@@ -24,3 +24,9 @@ Route::get('time/','Home\IndexController@time');
 Route::get('infopic/','Home\IndexController@infopic');
 
 //后台路由
+Route::group(['middleware'=>'web'],function(){
+	//后台登录
+   Route::any('admin/login','Admin\LoginController@login');
+   //创建验证码
+   Route::get('admin/code','Admin\LoginController@code');
+});
